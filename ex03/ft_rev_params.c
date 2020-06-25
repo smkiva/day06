@@ -5,32 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smkiva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/25 16:30:20 by smkiva            #+#    #+#             */
-/*   Updated: 2020/06/25 16:40:45 by smkiva           ###   ########.fr       */
+/*   Created: 2020/06/25 16:46:59 by smkiva            #+#    #+#             */
+/*   Updated: 2020/06/25 16:49:20 by smkiva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<unistd.h>
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-int		main(int argc, char  *argv[])
+void	ft_putstr(char *str)
 {
 	int i;
-	int j;
 
-	j = 1;
-	while (j < argc)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		i = 0;
-		while (argv[j][i] != '\0')
-		{
-			ft_putchar(argv[j][i]);
-			++i;
-		}
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+int		main(int argc, char **argv)
+{
+	int i;
+
+	i = argc - 1;
+	while (i > 0)
+	{
+		ft_putstr(argv[i]);
 		ft_putchar('\n');
-		++j;
+		i--;
 	}
 	return (0);
 }
